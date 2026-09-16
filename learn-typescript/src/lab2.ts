@@ -51,14 +51,8 @@ function locSaleTuTrungBinh(list: Product[]): Product[] {
     return list.filter((sp) => sp.sale && sp.rate !== Rate.low);
 }
 
-console.log("--- Danh sach san pham ---");
+//chạy thử
 hienThi(listProducts);
-
-console.log("--- Them mo ta ---");
 console.log(themMoTa(listProducts));
-
-console.log("--- Tong gia ban ---");
 console.log(tinhTongGia(listProducts));
-
-console.log("--- San pham dang sale, danh gia tu Trung binh ---");
 hienThi(locSaleTuTrungBinh(listProducts));

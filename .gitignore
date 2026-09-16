@@ -1,9 +1,4 @@
-# Thư viện cài bằng npm
 node_modules/
-
-# File hệ thống
+notes/note.md
 .DS_Store
 Thumbs.db
-
-# ghi chu ca nhan, khong day len GitHub
-notes/note.md
