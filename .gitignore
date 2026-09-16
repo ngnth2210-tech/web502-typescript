@@ -1,0 +1,6 @@
+# Thư viện cài bằng npm
+node_modules/
+
+# File hệ thống
+.DS_Store
+Thumbs.db
