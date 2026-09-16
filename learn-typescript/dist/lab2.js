@@ -9,24 +9,19 @@ var Rate;
     Rate["medium"] = "Trung b\u00ECnh";
     Rate["hight"] = "Cao";
 })(Rate || (Rate = {}));
-//trạng thái hàng hoá
-var Status;
-(function (Status) {
-    Status["inStock"] = "C\u00F2n h\u00E0ng";
-    Status["outOfStock"] = "H\u1EBFt h\u00E0ng";
-})(Status || (Status = {}));
 const listProducts = [
-    { name: "Bàn phím cơ", price: 12, status: Status.inStock, rate: Rate.hight },
-    { name: "Chuột không dây", price: 5, status: Status.outOfStock, rate: Rate.medium },
-    { name: "Tai nghe", price: 8, status: Status.inStock, rate: Rate.medium },
-    { name: "Lót chuột", price: 2, status: Status.inStock, rate: Rate.low },
-    { name: "Webcam", price: 15, status: Status.outOfStock, rate: Rate.hight },
+    { name: "Bàn phím cơ", price: 12, sale: true, rate: Rate.hight },
+    { name: "Chuột không dây", price: 5, sale: false, rate: Rate.medium },
+    { name: "Tai nghe", price: 8, sale: true, rate: Rate.medium },
+    { name: "Lót chuột", price: 2, sale: true, rate: Rate.low },
+    { name: "Webcam", price: 15, sale: false, rate: Rate.hight },
 ];
 //console.log(listProducts);
 //hiển thị danh sách sản phẩm (forEach)
 function hienThi(list) {
     list.forEach((sp) => {
-        console.log(`${sp.name} | ${sp.price} | ${sp.status} | ${sp.rate}`);
+        const trangThai = sp.sale ? "Đang sale" : "Không sale";
+        console.log(`${sp.name} | ${sp.price} | ${trangThai} | ${sp.rate}`);
     });
 }
 function themMoTa(list) {
@@ -39,9 +34,9 @@ function themMoTa(list) {
 function tinhTongGia(list) {
     return list.reduce((tong, sp) => tong + sp.price, 0);
 }
-//lọc sản phẩm còn hàng và đánh giá từ Trung bình trở lên (filter)
-function locConHangTuTrungBinh(list) {
-    return list.filter((sp) => sp.status === Status.inStock && sp.rate !== Rate.low);
+//lọc sản phẩm đang sale và đánh giá từ Trung bình trở lên (filter)
+function locSaleTuTrungBinh(list) {
+    return list.filter((sp) => sp.sale && sp.rate !== Rate.low);
 }
 console.log("--- Danh sach san pham ---");
 hienThi(listProducts);
@@ -49,5 +44,5 @@ console.log("--- Them mo ta ---");
 console.log(themMoTa(listProducts));
 console.log("--- Tong gia ban ---");
 console.log(tinhTongGia(listProducts));
-console.log("--- San pham con hang, danh gia tu Trung binh ---");
-hienThi(locConHangTuTrungBinh(listProducts));
+console.log("--- San pham dang sale, danh gia tu Trung binh ---");
+hienThi(locSaleTuTrungBinh(listProducts));
