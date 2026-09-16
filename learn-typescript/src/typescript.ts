@@ -15,7 +15,7 @@ let myYear = 2005;
 
 //object: chua nhiều thuộc tính
 
-const student = { name: string, age: number; isActive: boolean } = {
+const student: { name: string; age: number; isActive: boolean } = {
     name: "hoadv",
     age: 34,
     isActive: true,
