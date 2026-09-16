@@ -38,7 +38,6 @@ function tinhTongGia(list) {
 function locSaleTuTrungBinh(list) {
     return list.filter((sp) => sp.sale && sp.rate !== Rate.low);
 }
-//chạy thử
 hienThi(listProducts);
 console.log(themMoTa(listProducts));
 console.log(tinhTongGia(listProducts));
