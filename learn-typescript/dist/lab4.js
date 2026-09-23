@@ -48,3 +48,28 @@ const product = {
     price: 12,
 };
 console.log(product);
+//generic <T>: userState()
+function getValue(value) {
+    return value;
+}
+function logStatus(status) {
+    if (status === "loading") {
+        console.log("Đang tải");
+    }
+    if (status === "success") {
+        console.log("Thành công");
+    }
+    if (status === "error") {
+        console.log("Lỗi");
+    }
+}
+logStatus("loading");
+logStatus("success");
+logStatus("error");
+//Bài 5 - hàm Generic
+function identity(value) {
+    return value;
+}
+console.log(identity(10));
+console.log(identity("Hello"));
+console.log(identity(true));

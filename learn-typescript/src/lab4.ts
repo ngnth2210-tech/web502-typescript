@@ -78,3 +78,37 @@ const product: Product = {
 };
 
 console.log(product);
+
+//generic <T>: userState()
+function getValue<T>(value: T): T {
+    return value;
+}
+
+//Bài 4 - type Status và hàm logStatus
+type Status = "loading" | "success" | "error";
+
+function logStatus(status: Status) {
+    if (status === "loading") {
+        console.log("Đang tải");
+    }
+    if (status === "success") {
+        console.log("Thành công");
+    }
+    if (status === "error") {
+        console.log("Lỗi");
+    }
+}
+
+logStatus("loading");
+logStatus("success");
+logStatus("error");
+
+
+//Bài 5 - hàm Generic
+function identity<T>(value: T): T {
+    return value;
+}
+
+console.log(identity(10));
+console.log(identity("Hello"));
+console.log(identity(true));
