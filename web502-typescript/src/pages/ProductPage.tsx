@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
 import axios from "axios";
-import AddPage from './AddPage';
+import useDebounce from "../hooks/useDebounce";
 
 interface Product {
   id: string;
@@ -13,6 +13,7 @@ interface Product {
 function ProductPage() {
   const [products, setProducts] = useState<Product[]>([]);
   const [search, setSearch] = useState("");
+  const debouncedSearch = useDebounce(search, 1000);
 
   const getProducts = async () => {
     const res = await axios.get(`http://localhost:3000/products?q=${search}`);
@@ -29,18 +30,28 @@ function ProductPage() {
 
   useEffect(() => {
     getProducts();
-  }, [search]);
+  }, [debouncedSearch]);
 
   return (
   <div className="p-6">
     <h1 className="text-2xl font-semibold mb-6">Danh sách sản phẩm</h1>
 
-    <input 
-      className="border px-2 py-1 mb-4"
-      placeholder="Tìm theo tên"
-      value={search}
-      onChange={(e) => setSearch(e.target.value)}
-      />
+    <form
+      onSubmit={(e) => {
+        e.preventDefault();
+        getProducts();
+      }}
+    >
+      <input
+        className="border px-2 py-1 mb-4"
+        placeholder="Tìm theo tên"
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
+        />
+      <button type="submit" className="border px-3 py-1 ml-2">
+        Tìm kiếm
+      </button>
+    </form>
 
     <div className="overflow-x-auto">
       <table className="w-full border border-gray-300 rounded-lg">
