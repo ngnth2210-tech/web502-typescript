@@ -1,0 +1,39 @@
+{
+  "todos": [
+    {
+      "id": "1",
+      "title": "Học React",
+      "completed": false
+    }
+  ],
+  "products": [
+    {
+      "id": "1",
+      "name": "Bàn phím cơ",
+      "price": 850000,
+      "category": "Phụ kiện",
+      "inStock": true
+    },
+    {
+      "id": "2",
+      "name": "Chuột không dây",
+      "price": 250000,
+      "category": "Phụ kiện",
+      "inStock": true
+    },
+    {
+      "id": "3",
+      "name": "Tai nghe Bluetooth",
+      "price": 600000,
+      "category": "Âm thanh",
+      "inStock": false
+    },
+    {
+      "id": "4",
+      "name": "Loa mini",
+      "price": 320000,
+      "category": "Âm thanh",
+      "inStock": true
+    }
+  ]
+}

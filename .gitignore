@@ -1,4 +1,4 @@
 node_modules/
-notes/note.md
+notes/note*.md
 .DS_Store
 Thumbs.db
